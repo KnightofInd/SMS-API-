@@ -8,17 +8,15 @@ import os
 from fastapi.middleware.cors import CORSMiddleware
 
 # Initialize FastAPI app
-app = FastAPI(title="Educational Content Generator API")
+app = FastAPI()
 
-# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Change this to specific origins in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Configure Gemini API
 GEMINI_API_KEY = "AIzaSyCINy1sxflACSJFOl9VvhaLoMLjLmsk5EU"
 genai.configure(api_key=GEMINI_API_KEY)
